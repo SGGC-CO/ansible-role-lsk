@@ -1,0 +1,13 @@
+---
+# tasks file for roles/ansible-role-lsk
+- name: Get RSA key
+  shell: cat {{ pub_rsa_file_path }}
+  register: RSA
+
+- name: Register dummy host with variable
+  add_host:
+    name: "DUMMY_HOST"
+    RSA_NEW: "{{ RSA.stdout }}"
+
+- name: remove host
+  shell: ssh-keygen -R "{{ hostvars['localhost']['ansible_raw_server'] }}"

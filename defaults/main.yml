@@ -1,0 +1,6 @@
+---
+# defaults variable for roles/ansible-role-lsk
+pub_rsa_file_path: "/home/ansible/.ssh/id_rsa.pub"
+
+# Inventory file
+raw_server: "1.2.3.4"
